@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This scenario file was created by SGDiCoP on 2014-04-16T15:14:48-->
+<scenario>
+    <!--Obstacles-->
+    <obstacle x1="0" y1="0" x2="0" y2="-8.5"/>
+    <obstacle x1="0" y1="-8.5" x2="7.5" y2="-8.5"/>
+    <obstacle x1="7.5" y1="-8.5" x2="7.5" y2="-2.5"/>
+    <obstacle x1="7.5" y1="-2.5" x2="13" y2="-2.5"/>
+    <obstacle x1="13" y1="-2.5" x2="13" y2="-5.0"/>
+    <obstacle x1="13" y1="-5.0" x2="15.5" y2="-5.0"/>
+    <obstacle x1="15.5" y1="-5.0" x2="15.5" y2="0"/>
+    <obstacle x1="15.5" y1="0.0" x2="0.0" y2="0.0"/>
+    <obstacle x1="0.0" y1="-2.5" x2="5.5" y2="-2.5"/>
+
+
+    <!--Waypoints (incl. WaitingQueues)-->
+    <waypoint id="w1" x="1" y="-7.5" r="1"/>
+    <waypoint id="w2" x="1" y="-3.5" r="1"/>
+    <waypoint id="w3" x="6.5" y="-3.5" r="1"/>
+    <waypoint id="w4" x="6.5" y="-7.5" r="1"/>
+    <waypoint id="w5" x="1" y="-1.25" r="1"/>
+    <waypoint id="w6" x="14.25" y="-1.25" r="1"/>
+    <waypoint id="w7" x="14.25" y="-4" r="1"/>
+    <waypoint id="w8" x="6.5" y="-1.25" r="1"/>
+    <waypoint id="robot_start" x="2.0" y="-1.0" r="1"/>
+    <waypoint id="robot_goal" x="6.0" y="-8.0" r="1"/>
+
+    <!--Attractions-->
+<!--     <attraction id="Bookshop" x="27" y="15" width="5" height="10" strength="1"/> -->
+<!--     <attraction id="starbucksky" x="3" y="15" width="5" height="10" strength="2"/> -->
+    <!--Agents-->
+     <!-- Robot agent (id = 1) -->
+    <agent x="1.0" y="-1.0" n="1" dx="0" dy="0" type="2">
+        <addwaypoint id="robot_start"/>
+        <waypoint id="robot_goal" x="6.0" y="-5.0" r="1"/>
+    </agent>
+    <agent x="1" y="-7.5" n="1" dx="2" dy="2" type="1">
+        <addwaypoint id="w1"/>
+        <addwaypoint id="w2"/>
+        <addwaypoint id="w3"/>
+        <addwaypoint id="w4"/>
+    </agent>
+    <agent x="6.5" y="-7.5" n="1" dx="2" dy="2" type="1">
+        <addwaypoint id="w4"/>
+        <addwaypoint id="w3"/>
+        <addwaypoint id="w2"/>
+        <addwaypoint id="w1"/>
+    </agent>
+    <agent x="1" y="-1.25" n="1" dx="2" dy="2" type="1">
+        <addwaypoint id="w5"/>
+        <addwaypoint id="w8"/>
+        <addwaypoint id="w6"/>
+        <addwaypoint id="w7"/>
+        <addwaypoint id="w6"/>
+    </agent>
+    <agent x="14.25" y="-4" n="1" dx="2" dy="2" type="1">
+        <addwaypoint id="w7"/>
+        <addwaypoint id="w6"/>
+        <addwaypoint id="w8"/>
+        <addwaypoint id="w5"/>
+        <addwaypoint id="w6"/>
+    </agent>
+    <agent x="1" y="-7.5" n="1" dx="2" dy="2" type="1">
+        <addwaypoint id="w1"/>
+        <addwaypoint id="w3"/>
+        <addwaypoint id="w8"/>
+        <addwaypoint id="w5"/>
+        <addwaypoint id="w6"/>
+        <addwaypoint id="w7"/>
+        <addwaypoint id="w6"/>
+        <addwaypoint id="w8"/>
+        <addwaypoint id="w3"/>
+    </agent>
+    <!--AgentClusters-->
+    <!--agent x="6" y="5" n="6" dx="3" dy="3" type="0">
+        <addwaypoint id="enter_bookshop"/>
+        <addwaypoint id="leave_bookshop"/>
+        <addwaypoint id="enter_starbucksky"/>
+        <addwaypoint id="leave_starbucksky"/>
+    </agent>
+    <agent x="7" y="5" n="1" dx="3" dy="3" type="1">
+        <addqueue id="info_desk"/>
+        <addwaypoint id="leave_bookshop"/>
+        <addwaypoint id="enter_starbucksky"/>
+    </agent>
+    <agent x="24" y="25" n="6" dx="4" dy="4" type="0">
+        <addwaypoint id="enter_starbucksky"/>
+        <addwaypoint id="leave_starbucksky"/>
+        <addwaypoint id="enter_bookshop"/>
+        <addwaypoint id="leave_bookshop"/>
+    </agent>
+    <agent x="23" y="25" n="1" dx="3" dy="3" type="1">
+        <addwaypoint id="enter_starbucksky"/>
+        <addqueue id="info_desk"/>
+        <addwaypoint id="leave_bookshop"/>
+    </agent-->
+
+
+</scenario>

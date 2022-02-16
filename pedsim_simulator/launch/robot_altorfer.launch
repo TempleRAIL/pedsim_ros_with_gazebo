@@ -1,0 +1,71 @@
+<launch>
+  <arg name="kbd_teleop" default="false"/>
+  <arg name="rqt_teleop" default="false"/>
+  <arg name="scene_file" default="$(find pedsim_simulator)scenarios/nav_test.xml"/>
+  <arg name="default_queue_size" default="10"/>
+  <arg name="max_robot_speed" default="1.5"/>
+  <arg name="robot_mode" default="1"/>
+  <arg name="enable_groups" default="true"/>
+  <arg name="with_robot" default="true"/>
+  <arg name="pose_initial_x" default="1.0"/>
+  <arg name="pose_initial_y" default="1.0"/>
+  <arg name="pose_initial_theta" default="0.0"/>
+  <arg name="simulation_factor" default="1"/>
+  <arg name="update_rate" default="25.0"/>
+
+  <arg name="visualize" default="false"/>
+
+  <!-- Gazebo -->
+  <include file="$(find pedsim_gazebo_plugin)/launch/nav_test.launch"/>
+
+  <!-- Place gazebo frame at map frame -->
+  <node pkg="tf" type="static_transform_publisher" name="gazebo_map_broadcaster"
+      args="-1.0 -1.0 0 0 0 0  odom gazebo 100"/>
+
+  <!-- Turtlebot -->
+  <arg name="base"         value="$(optenv ROBOT_BASE kobuki)"/> <!-- create, roomba -->
+  <arg name="battery"      value="$(optenv ROBOT_BATTERY /proc/acpi/battery/BAT0)"/>  <!-- /proc/acpi/battery/BAT0 -->
+  <arg name="gui"          default="true"/>
+  <arg name="stacks"       value="$(optenv ROBOT_STACKS hexagons)"/>  <!-- circles, hexagons -->
+  <arg name="laser_sensor" value="$(optenv ROBOT_LASER_SENSOR hokuyo_kinect)"/>  <!-- laser, hokuyo lidar -->
+  <arg name="3d_sensor"    value="$(optenv TURTLEBOT_3D_SENSOR kinect)"/>  <!-- kinect, asus_xtion_pro -->
+
+  <include file="$(find robot_gazebo)/launch/includes/$(arg base).launch.xml">
+      <arg name="base" value="$(arg base)"/>
+      <arg name="stacks" value="$(arg stacks)"/>
+      <arg name="3d_sensor" value="$(arg 3d_sensor)"/>
+      <arg name="laser_sensor" value="$(arg laser_sensor)"/>
+      <arg name="initial_pose" value="-x $(arg pose_initial_x) -y $(arg pose_initial_y) -z $(arg pose_initial_theta)"/>
+  </include>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" type="double" value="30.0" />
+  </node>
+
+  <!-- main simulator node -->
+  <node name="pedsim_simulator" pkg="pedsim_simulator" type="pedsim_simulator" output="screen">
+    <param name="scene_file" value="$(arg scene_file)" type="string"/>
+    <param name="default_queue_size" value="$(arg default_queue_size)" type="int"/>
+    <param name="max_robot_speed" value="$(arg max_robot_speed)" type="double"/>
+    <param name="robot_mode" value="$(arg robot_mode)" type="int"/>
+    <param name="enable_groups" value="$(arg enable_groups)" type="bool"/>
+    <param name="simulation_factor" value="$(arg simulation_factor)" type="double"/>
+    <param name="update_rate" value="$(arg update_rate)" type="double"/>
+  </node>
+
+  <!-- Visualizer -->
+  <include file="$(find pedsim_visualizer)/launch/visualizer.launch"/>
+
+  <!-- Rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find pedsim_simulator)/rviz/social_contexts_activities.rviz" if="$(arg visualize)"/>
+
+
+  <!-- Robot Control >
+  <node pkg="turtlebot_teleop" type="turtlebot_teleop_key" name="turtlebot_teleop_keyboard"  output="screen" >
+    <param name="scale_linear" value="0.5" type="double"/>
+    <param name="scale_angular" value="1.5" type="double"/>
+    <remap from="turtlebot_teleop_keyboard/cmd_vel" to="cmd_vel_mux/input/teleop"/>
+  </node-->
+
+
+</launch>

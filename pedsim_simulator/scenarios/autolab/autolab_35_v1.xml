@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+    <!--Obstacles-->
+    
+    <!--south door and wall-->
+    <obstacle x1="-0.5" y1="6.5" x2="10.4" y2="6.5"/>
+    <obstacle x1="10.4" y1="6.5" x2="10.4" y2="5.7"/>
+    <obstacle x1="10.4" y1="5.7" x2="11.9" y2="5.7"/>
+    <obstacle x1="11.6" y1="5.7" x2="11.6" y2="1"/>
+    <obstacle x1="11.6" y1="1" x2="15.2" y2="1"/>
+    <obstacle x1="15.2" y1="1" x2="15.2" y2="5.7"/>
+    <obstacle x1="14.5" y1="5.7" x2="23.6" y2="5.7"/>
+    <!--south room wall>
+    <obstacle x1="0.8" y1="6.5" x2="0.8" y2="7"/> 
+    <obstacle x1="0.8" y1="7" x2="2.6" y2="7"/>
+    <obstacle x1="2.6" y1="7" x2="2.6" y2="6.5"/-->  
+    <!--east wall-->
+    <obstacle x1="23.6" y1="5.7" x2="23.6" y2="9.4"/>
+    <obstacle x1="23.6" y1="9.4" x2="17.6" y2="9.4"/>
+    <obstacle x1="17.6" y1="9.4" x2="17.6" y2="21"/>
+    <obstacle x1="11.6" y1="11.8" x2="12" y2="11.8"/>
+    <obstacle x1="14.5" y1="11.8" x2="17.6" y2="11.8"/>
+    <obstacle x1="11.6" y1="15.4" x2="11.6" y2="11.8"/>
+    <obstacle x1="11.6" y1="15.4" x2="17.6" y2="15.4"/>
+     <!--north wall-->
+    <obstacle x1="17.6" y1="21" x2="-0.5" y2="21"/>
+    <obstacle x1="11.6" y1="21" x2="11.6" y2="17.2"/>
+    <obstacle x1="11.6" y1="17.8" x2="8.5" y2="17.8"/>
+    <obstacle x1="5.3" y1="17.8" x2="5.9" y2="17.8"/>
+    <obstacle x1="5.6" y1="21" x2="5.6" y2="17.8"/>
+    <obstacle x1="-0.5" y1="17.8" x2="2.8" y2="17.8"/>
+    <!--west wall-->
+    <obstacle x1="-0.5" y1="21" x2="-0.5" y2="6.5"/>
+    <!--middle room wall-->
+    <obstacle x1="4.4" y1="13.5" x2="6.8" y2="13.5"/> 
+    <obstacle x1="4.4" y1="11" x2="6.8" y2="11"/> 
+    <obstacle x1="5.6" y1="13.5" x2="5.6" y2="11"/> 
+
+    <!--Waypoints (incl. WaitingQueues)-->
+    <waypoint id="enter_westdoor" x="3" y="16" r="3"/>
+    <waypoint id="enter_southwall" x="2" y="8" r="3"/>
+    <waypoint id="enter_eastdoor" x="20" y="8" r="3"/>
+    <waypoint id="enter_eastroom" x="9" y="9" r="3"/>
+    <waypoint id="enter_northroom" x="9.5" y="17" r="3"/>
+
+    <waypoint id="northeast_uproom" x="12" y="20.5" r="3"/>
+    <waypoint id="northeast_downroom" x="17" y="16" r="3"/>
+
+    <waypoint id="east_middleroom" x="13" y="12.2" r="3"/>
+    <waypoint id="south_middleroom" x="13.5" y="1.2" r="3"/>
+
+    <waypoint id="robot_goal" x="11" y="16" r="5"/>
+    <waypoint id="robot_start" x="1" y="7" r="5"/>
+
+    <queue id="northwest_room" x="0.5" y="19" direction="0"/>
+    <queue id="northmiddle_room" x="10" y="19.5" direction="0"/>
+    <queue id="northeast_room" x="12" y="20" direction="0"/>
+    <queue id="east_room" x="15" y="13" direction="0"/>
+    <queue id="south_room" x="14" y="2" direction="0"/>
+	
+
+    <agent x="1" y="7" n="1" dx="0" dy="0" type="2">
+        <addwaypoint id="robot_start"/>
+        <addwaypoint id="robot_goal"/>
+    </agent>
+
+        <!--AgentClusters-->
+    <agent x="1.5" y="17" n="7" dx="0.5" dy="0.5" type="1">
+        <addwaypoint id="enter_westdoor"/>
+        <addwaypoint id="enter_southwall"/>
+        <addwaypoint id="enter_eastdoor"/>
+        <addwaypoint id="enter_eastroom"/>
+        <addwaypoint id="enter_northroom"/>
+    </agent>
+
+    <agent x="22" y="8" n="7" dx="0.5" dy="0.5" type="1">
+        <addwaypoint id="enter_eastdoor"/>
+        <addwaypoint id="enter_eastroom"/>
+        <addwaypoint id="enter_southwall"/>
+        <addwaypoint id="enter_westdoor"/>
+        <addwaypoint id="enter_northroom"/>
+    </agent>
+
+    <agent x="3" y="9" n="5" dx="0.2" dy="0.2" type="1">
+        <addwaypoint id="enter_southwall"/>
+        <addwaypoint id="enter_eastdoor"/>
+    </agent>
+    <agent x="21" y="8.5" n="3" dx="0.2" dy="0.2" type="1">
+        <addwaypoint id="enter_eastdoor"/>
+        <addwaypoint id="enter_southwall"/>
+    </agent>
+
+    <agent x="12" y="20.5" n="2" dx="1" dy="1" type="1">
+        <addwaypoint id="northeast_uproom"/>
+        <addwaypoint id="northeast_downroom"/>
+    </agent>
+
+    <agent x="12.5" y="15" n="6" dx="0.5" dy="0.2" type="1">
+        <addwaypoint id="east_middleroom"/>
+        <addwaypoint id="south_middleroom"/>
+    </agent>
+    
+    <!-- stand person-->
+    <agent x="0.5" y="19" n="1" dx="1" dy="1" type="1">
+        <addwaypoint id="northwest_room"/>
+    </agent>
+    <agent x="10" y="19.5" n="1" dx="1" dy="1" type="1">
+        <addwaypoint id="northmiddle_room"/>
+    </agent>
+    <agent x="12" y="20" n="1" dx="1" dy="1" type="1">
+        <addwaypoint id="northeast_room"/>
+    </agent>
+    <agent x="15" y="13" n="1" dx="1" dy="1" type="1">
+        <addwaypoint id="east_room"/>
+    </agent>
+    <agent x="14" y="2" n="1" dx="1" dy="1" type="1">
+        <addwaypoint id="south_room"/>
+    </agent>
+
+
+
+    
+</scenario>

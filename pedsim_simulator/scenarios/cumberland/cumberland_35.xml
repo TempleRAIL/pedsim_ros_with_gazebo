@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+    <!--Obstacles-->
+    
+    <!--south door and wall-->
+    <obstacle x1="2.3" y1="6.5" x2="19.9" y2="6.5"/>
+    <obstacle x1="19.9" y1="6.5" x2="19.9" y2="2.5"/>
+    <obstacle x1="19.9" y1="2.5" x2="23.6" y2="1"/>
+    <obstacle x1="23.6" y1="1" x2="29.3" y2="1"/>
+    <obstacle x1="29.3" y1="1" x2="33.6" y2="3.8"/>
+    <!--east wall-->
+    <obstacle x1="33.6" y1="3.8" x2="33.6" y2="13.2"/>
+    <obstacle x1="33.6" y1="13.2" x2="26.2" y2="13.2"/>
+    <obstacle x1="26.2" y1="13.2" x2="26.2" y2="15.4"/>
+    <obstacle x1="26.2" y1="15.4" x2="31.4" y2="15.4"/>
+    <obstacle x1="31.4" y1="15.4" x2="31.4" y2="17.7"/>
+    <obstacle x1="31.4" y1="17.7" x2="28.5" y2="17.7"/>
+    <obstacle x1="28.5" y1="17.7" x2="28.5" y2="24.7"/>
+     <!--north wall-->
+    <obstacle x1="28.5" y1="24.7" x2="24.3" y2="24.7"/>
+    <obstacle x1="24.3" y1="24.7" x2="24.3" y2="19.4"/>
+    <obstacle x1="24.3" y1="19.4" x2="8.6" y2="19.4"/>
+    <obstacle x1="8.6" y1="19.4" x2="8.6" y2="11.9"/>
+    <obstacle x1="8.6" y1="11.9" x2="5.5" y2="11.9"/>
+    <obstacle x1="5.5" y1="11.9" x2="5.5" y2="15.7"/>
+    <obstacle x1="5.5" y1="15.7" x2="2.3" y2="15.7"/>
+    <!--west wall-->
+    <obstacle x1="2.3" y1="15.7" x2="2.3" y2="6.5"/>
+    <!--west room wall-->
+    <obstacle x1="5.5" y1="11.9" x2="5.5" y2="9"/> 
+    <obstacle x1="8.6" y1="11.9" x2="8.6" y2="9"/> 
+    <!--middle room wall-->
+    <obstacle x1="13.4" y1="16.5" x2="16.3" y2="16.5"/> 
+    <obstacle x1="13.4" y1="16.5" x2="13.4" y2="9"/> 
+    <obstacle x1="19" y1="16.5" x2="19.9" y2="16.5"/> 
+    <obstacle x1="19.9" y1="16.5" x2="19.9" y2="9"/> 
+    <obstacle x1="13.4" y1="13.6" x2="19.9" y2="13.6"/> 
+    <obstacle x1="16.4" y1="13.6" x2="16.4" y2="9"/> 
+    <!--east room wall-->
+    <!--obstacle x1="23.2" y1="9.6" x2="25.3" y2="9.6"/--> 
+    <obstacle x1="25.3" y1="9.6" x2="25.3" y2="4.7"/>   
+    <!--obstacle x1="23.2" y1="4.7" x2="25.3" y2="4.7"/-->  
+    <!--trash can -->
+    <obstacle x1="33.6" y1="10" x2="33" y2="10"/> 
+    <obstacle x1="33" y1="10" x2="33" y2="11"/>
+    <obstacle x1="33" y1="11" x2="33.6" y2="11"/>
+
+    <!--Waypoints (incl. WaitingQueues)-->
+    <waypoint id="enter_westdoor" x="10" y="17" r="3"/>
+    <waypoint id="enter_roomdoor" x="11" y="8" r="3"/>
+    <waypoint id="enter_leftshow" x="20" y="8" r="3"/>
+    <waypoint id="enter_rightshow" x="32" y="12" r="3"/>
+    <waypoint id="enter_trashcan" x="31" y="3" r="3"/>
+    <waypoint id="enter_northdoor" x="23" y="18" r="3"/>
+    <waypoint id="enter_southdoor" x="22" y="3" r="3"/>
+
+    <waypoint id="robot_goal" x="27" y="23" r="5"/>
+    <waypoint id="robot_start" x="3" y="7" r="5"/>
+	
+
+    <agent x="3" y="7" n="1" dx="0" dy="0" type="2">
+        <addwaypoint id="robot_start"/>
+        <addwaypoint id="robot_goal"/>
+    </agent>
+
+        <!--AgentClusters-->
+    <agent x="11" y="15" n="10" dx="1" dy="1" type="1">
+        <addwaypoint id="enter_westdoor"/>
+        <addwaypoint id="enter_roomdoor"/>
+        <addwaypoint id="enter_leftshow"/>
+        <addwaypoint id="enter_trashcan"/>
+        <addwaypoint id="enter_northdoor"/>
+    </agent>
+
+    <agent x="21" y="18" n="9" dx="1" dy="1" type="1">
+        <addwaypoint id="enter_northdoor"/>
+        <addwaypoint id="enter_leftshow"/>
+        <addwaypoint id="enter_southdoor"/>
+        <addwaypoint id="enter_trashcan"/>
+    </agent>
+
+    <agent x="21" y="3" n="8" dx="1" dy="1" type="1">
+        <addwaypoint id="enter_southdoor"/>
+        <addwaypoint id="enter_northdoor"/>
+    </agent>
+
+    <agent x="30" y="3" n="8" dx="1" dy="1" type="1">
+        <addwaypoint id="enter_rightshow"/>
+        <addwaypoint id="enter_trashcan"/>
+        <addwaypoint id="enter_southdoor"/>
+        <addwaypoint id="enter_leftshow"/>
+    </agent>
+
+
+    
+</scenario>
