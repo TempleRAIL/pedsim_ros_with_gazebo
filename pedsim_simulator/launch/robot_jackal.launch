@@ -2,7 +2,7 @@
   <param name="use_sim_time" value="true"/>
   <arg name="kbd_teleop" default="false"/>
   <arg name="rqt_teleop" default="false"/>
-  <arg name="scene_file" default="$(find pedsim_simulator)scenarios/eng_hall.xml"/>
+  <arg name="scene_file" default="$(find pedsim_simulator)/scenarios/eng_hall.xml"/>
   <arg name="world_name" default="$(find pedsim_gazebo_plugin)/worlds/eng_hall.world"/>
   <arg name="default_queue_size" default="10"/>
   <arg name="max_robot_speed" default="1.5"/>
