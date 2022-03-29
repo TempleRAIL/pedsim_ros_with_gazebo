@@ -163,64 +163,7 @@ Ped::Tvector Ped::Tagent::socialForce() const {
     // compute difference between both agents' positions
     Tvector diff = other->p - p;
     // change this can let robot not collide with pedestrian: by xzt
-    //if(other->getType() == ROBOT) diff /= robotPosDiffScalingFactor;
-
-    // change this to let robot not be collided with pedestrian: by xzt
-    if(other->getType() == ROBOT) 
-    {
-      diff /= robotPosDiffScalingFactor;  
-      
-      // correct the robot velocites: 
-      Tvector r_v = other->v;
-      if(abs(r_v.x) < 0.001)
-        r_v.x = 0.0;
-      if(abs(r_v.y) < 0.001)
-        r_v.y = 0.0;
-      // decide the opposite direction flag:
-      int od_flag = 0;
-      if(abs(v.x) >= abs(v.y) && abs(r_v.x) >= abs(r_v.y))
-      {
-        if(v.x * r_v.x < 0)
-          od_flag = 1;
-      }
-      else if(abs(v.x) <= abs(v.y) && abs(r_v.x) <= abs(r_v.y))
-      {
-        if(v.y * r_v.y < 0)
-          od_flag = 1;
-      }
-      
-      // printf("Pos_r_p:(%f, %f) \n", diff.x, diff.y);
-      // printf("Ped_v:(%f, %f); Robo_v:(%f, %f) \n", v.x, v.y, r_v.x, r_v.y);
-      /*
-      // compute angle theta (between robot's velocity vector and pedestrian's velocity): decide the opposite motion direction
-      Tvector diff_v = other->v - v; //
-      Ped::Tangle theta_v = diff_v.angleTo(v);
-      double theta_v_rad = theta_v.toRadian();
-      */
-      // compute angle theta (between position difference vector and pedestrian's velocity): decide the forward position direction
-      Ped::Tangle theta_p = diff.angleTo(v);
-      double theta_p_rad = theta_p.toRadian();
-      // add the eye contact factor: in the forward social zone: d < 4m, same position direction, and opposite motion direction
-      if(diff.length() <= 4 && abs(theta_p_rad) < 1.5706 && od_flag == 1)//&& abs(theta_v_rad) > 1.5706 && od_flag == 1)
-      {
-        // probabilistic eye contact: 
-        // give "true" 3/4 of the time
-        // give "false" 1/4 of the time
-        std::random_device rd;
-        std::bernoulli_distribution isContacted(eye_prob);
-        if(isContacted(rd)) // eye contact
-        {
-          diff /= 1 + eye_sigma;
-          //printf("Eye contact \n");
-        }
-        else
-        {
-          diff /= 1; 
-          //printf("Ignoring eye contact \n");
-        }
-      } 
-      
-    }
+    if(other->getType() == ROBOT) diff /= robotPosDiffScalingFactor;
       
     Tvector diffDirection = diff.normalized();
 
