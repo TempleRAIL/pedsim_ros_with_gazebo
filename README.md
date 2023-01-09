@@ -1,9 +1,13 @@
-# Modifications: 
+# Introduction:
+A 3D human-robot interaction Gazebo simulator, which is modified from https://github.com/srl-freiburg/pedsim_ros.
+
+## Modifications:
 * Integrate Pedsim_ros with the 3D gazebo simulator and turtlebot2 robot;
 * Add social force to the robot and pedestrians;
 * Add different test scenarios for navigation;
 * Change the meshes of spawned agents in the gazebo to make them look like real humans; 
 * Add eye contact interaction for the robot and pedestrians;
+---------------------------------------------------------------------------------------------------------------------------
 
 # Pedestrian Simulator
 <img src=https://github.com/srl-freiburg/pedsim_ros/blob/master/pedsim_simulator/images/crowd1.png width=400/> | <img src=https://github.com/srl-freiburg/pedsim_ros/blob/master/pedsim_simulator/images/costmap.png width=400/>
