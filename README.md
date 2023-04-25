@@ -5,6 +5,8 @@ https://doi.org/10.1109/TRO.2023.3257549
 https://doi.org/10.1109/IROS51168.2021.9636102
 ) in IROS 2021, which is modified from https://github.com/srl-freiburg/pedsim_ros.
 The aim of the simulator is to provide a close-to-real-world simulated environment for mobile robots navigating around pedestrians. 
+Detailed usage can be found at our [DRL-VO control policy](https://github.com/TempleRAIL/drl_vo_nav.git).
+
 Here is a GIF showing how this simulator works: 
 
 ![simulation_demo](pedsim_simulator/images/1.simulation_demo.gif "simulation_demo") 
