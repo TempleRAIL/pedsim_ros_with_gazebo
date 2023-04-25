@@ -5,10 +5,9 @@ https://doi.org/10.1109/TRO.2023.3257549
 https://doi.org/10.1109/IROS51168.2021.9636102
 ) in IROS 2021, which is modified from https://github.com/srl-freiburg/pedsim_ros.
 The aim of the simulator is to provide a close-to-real-world simulated environment for mobile robots navigating around pedestrians. 
-Here is a GIF and two images showing how this simulator works: 
-* Simulation:
+Here is a GIF showing how this simulator works: 
+
 ![simulation_demo](pedsim_simulator/images/1.simulation_demo.gif "simulation_demo") 
-<img src=pedsim_simulator/images/2.gazebo_macro.png width=400/> | <img src=pedsim_simulator/images/3.gazebo_micro.png width=400/>
 
 ## Modifications:
 This simulator is based on the Gazebo simulator and PEDSIM library, which uses the social forces model to guide the motion of individual pedestrians. THe main modifications from https://github.com/srl-freiburg/pedsim_ros are as follows:
@@ -16,6 +15,9 @@ This simulator is based on the Gazebo simulator and PEDSIM library, which uses t
 * Add an additional social force to the robot and other pedestrians;
 * Add different test scenarios for robot navigation;
 * Change the meshes of spawned agents in the gazebo to make them look like real humans; 
+
+<img src=pedsim_simulator/images/2.gazebo_macro.png width=500/> <img src=pedsim_simulator/images/3.gazebo_micro.png width=500/>
+
 -------------------------------------------------------------------------------------------------------------------------------
 
 ## Requirements
