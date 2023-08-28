@@ -12,7 +12,7 @@ Here is a GIF showing how this simulator works:
 ![simulation_demo](pedsim_simulator/images/1.simulation_demo.gif "simulation_demo") 
 
 ## Modifications:
-This simulator is based on the Gazebo simulator and PEDSIM library, which uses the social forces model to guide the motion of individual pedestrians. THe main modifications from https://github.com/srl-freiburg/pedsim_ros are as follows:
+This simulator is based on the Gazebo simulator and PEDSIM library, which uses the social forces model to guide the motion of individual pedestrians. The main modifications from https://github.com/srl-freiburg/pedsim_ros are as follows:
 * Integrate Pedsim_ros with the 3D gazebo simulator and turtlebot2 robot;
 * Add an additional social force to the robot and other pedestrians;
 * Add different test scenarios for robot navigation;
@@ -27,7 +27,7 @@ This simulator is based on the Gazebo simulator and PEDSIM library, which uses t
 * ROS-Kinetic/Melodic/Noetic
 
 ## Installation
-The default verison is ROS Noetic.
+The default version is ROS Noetic.
 ```
 cd ~
 mkdir catkin_ws
@@ -57,10 +57,11 @@ All contributors from https://github.com/srl-freiburg/pedsim_ros.
   journal={IEEE Transactions on Robotics}, 
   title={DRL-VO: Learning to Navigate Through Crowded Dynamic Scenes Using Velocity Obstacles}, 
   year={2023},
-  volume={},
-  number={},
-  pages={1-20},
-  doi={10.1109/TRO.2023.3257549}}
+  volume={39},
+  number={4},
+  pages={2700-2719},
+  doi={10.1109/TRO.2023.3257549}
+}
 
 @inproceedings{xie2021towards,
   title={Towards safe navigation through crowded dynamic environments},
